@@ -1,0 +1,3 @@
+com\huaweisoft\training\config\WebConfig.class
+com\huaweisoft\training\App.class
+com\huaweisoft\training\controller\GreetingController.class

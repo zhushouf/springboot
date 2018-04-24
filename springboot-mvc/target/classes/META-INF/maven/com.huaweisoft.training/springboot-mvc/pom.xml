@@ -1,0 +1,51 @@
+<!-- 第一行是XML头，指定了该xml文档的版本和编码方式 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion><!-- 指定了当前POM模型的版本，对于Maven2及Maven 3来说，它只能是4.0.0。 -->
+
+	<!-- groupId，artifactId和version三行。这三个元素定义了一个项目基本的坐标 -->
+	<groupId>com.huaweisoft.training</groupId><!--定义了项目属于哪个组 -->
+	<artifactId>springboot-mvc</artifactId><!--定义了当前Maven项目在组中唯一的ID -->
+	<packaging>jar</packaging><!--指定打包类型，可以是war，jar，pom,ear等形式 -->
+	<version>0.0.1-SNAPSHOT</version><!--指定了项目当前的版本 SNAPSHOT意为快照，说明该项目还处于开发中，是不稳定的版本。稳定版本则为RELEASE -->
+
+	<name>Huawei Soft Training</name><!--项目的名称, Maven产生的文档用 -->
+	<url>http://maven.apache.org</url> <!--项目主页的URL, Maven产生的文档用 -->
+
+	<!-- 属性和变量 -->
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source> <!-- Java版本 -->
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding><!--源文件编码 -->
+	</properties>
+
+	<!-- 根据实际需要，决定是不是要继承 spring-boot-starter-parent -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.0.RELEASE</version>
+	</parent>
+
+
+	<!-- 该元素下可以包含多个dependency元素以声明项目的依赖,前面我们提到groupId、artifactId和version是任何一个Maven项目最基本的坐标 -->
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- springboot 内置tomcat的jsp预编译处理器， 本项目使用jsp所以一定需要，否则页面显示的是JSP的源代码 -->
+		<!-- springboot-starter-tomcat只包含了tomcat-embed-core，tomcat-embed-el,tomcat-embed-websocket三个模块 -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>

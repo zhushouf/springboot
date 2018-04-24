@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>com.huaweisoft.training</groupId>
+  <artifactId>springboot</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <name>springboot Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+<!-- 属性和变量 -->
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source> <!-- Java版本 -->
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding><!--源文件编码 -->
+	</properties>
+
+	<!-- 根据实际需要，决定是不是要继承 spring-boot-starter-parent -->
+ 	 <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.1.RELEASE</version>
+	</parent>
+
+
+	<!-- 该元素下可以包含多个dependency元素以声明项目的依赖,前面我们提到groupId、artifactId和version是任何一个Maven项目最基本的坐标 -->
+	<dependencies>
+		<dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+		<!-- springboot 内置tomcat的jsp预编译处理器， 本项目使用jsp所以一定需要，否则页面显示的是JSP的源代码 -->
+		<!-- springboot-starter-tomcat只包含了tomcat-embed-core，tomcat-embed-el,tomcat-embed-websocket三个模块 -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+  
+</project>
